@@ -337,7 +337,7 @@ Love you, darshu ma…</p>
             if (currentPage < totalPages) {
                 document.getElementById(`page${currentPage}`).classList.add('turn');
                 currentPage++;
-                if (!isAudioPlaying) {
+                if (currentPage === 2 && !isAudioPlaying) {
                     audio.play();
                     isAudioPlaying = true;
                 }
@@ -359,6 +359,7 @@ Love you, darshu ma…</p>
         }
 
         document.body.addEventListener('touchstart', turnPage);
+        document.body.addEventListener('click', turnPage); // For desktop testing
 
         function incrementLove() {
             const loveButton = document.getElementById('loveButton');
