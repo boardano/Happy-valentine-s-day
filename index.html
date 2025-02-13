@@ -78,16 +78,6 @@
         .page.turn {
             transform: rotateY(-180deg);
         }
-        .next-button {
-            margin-top: 20px;
-            padding: 10px 15px;
-            font-size: 14px; /* Adjusted font size */
-            cursor: pointer;
-            background-color: #ff4d6d;
-            color: white;
-            border: none;
-            border-radius: 10px;
-        }
         .love-button {
             display: none;
             position: absolute;
@@ -120,7 +110,7 @@
     </audio>
     <h1>I Love You ❤️</h1>
     <p>Happy Valentine's day, Meri pyaari mimi</p>
-    <div class="book-container">
+    <div class="book-container" id="book-container">
         <div class="book" id="book">
             <div class="page" id="page1">
                 <p>Meri Pyaari, Mimi💟</p>
@@ -335,7 +325,6 @@ Love you, darshu ma…</p>
             </div>
         </div>
     </div>
-    <button class="next-button" onclick="turnPage()">Turn Page</button>
     <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
     <script>
         let currentPage = 1;
