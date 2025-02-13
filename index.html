@@ -331,13 +331,15 @@ Love you, darshu ma…</p>
         const totalPages = document.querySelectorAll('.page').length;
         let loveCount = 2;
         const audio = document.getElementById('backgroundMusic');
+        let isAudioPlaying = false;
 
         function turnPage() {
             if (currentPage < totalPages) {
                 document.getElementById(`page${currentPage}`).classList.add('turn');
                 currentPage++;
-                if (currentPage === 2) {
+                if (!isAudioPlaying) {
                     audio.play();
+                    isAudioPlaying = true;
                 }
                 if (currentPage === totalPages) {
                     document.getElementById('loveButton').style.display = 'block';
@@ -352,6 +354,7 @@ Love you, darshu ma…</p>
                 loveCount = 2;
                 audio.pause();
                 audio.currentTime = 0;
+                isAudioPlaying = false;
             }
         }
 
@@ -374,7 +377,7 @@ Love you, darshu ma…</p>
                 const emoji = document.createElement('div');
                 emoji.classList.add('emoji');
                 emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-                emoji.style.left = `${Math.random() * 100 }vw`;
+                emoji.style.left = `${Math.random() * 100}vw`;
                 emoji.style.animationDuration = `${Math.random() * 2 + 3}s`;
                 document.body.appendChild(emoji);
 
@@ -385,3 +388,4 @@ Love you, darshu ma…</p>
         }
     </script>
 </body>
+</html>
