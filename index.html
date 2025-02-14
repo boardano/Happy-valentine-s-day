@@ -82,12 +82,6 @@
         .page.turn {
             transform: rotateY(-180deg);
         }
-        .buttons-container {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
         .love-button {
             display: none;
             margin-top: 10px;
@@ -98,6 +92,10 @@
             color: white;
             border: none;
             border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         @keyframes emoji-shower {
             0% { transform: translateY(-100vh); }
@@ -355,20 +353,13 @@ Love you, darshu ma…</p>
                 if (currentPage === totalPages) {
                     document.getElementById('loveButton').style.display = 'block';
                 }
-            } else {
-                for (let i = 1; i <= totalPages; i++) {
-                    document.getElementById(`page${i}`).classList.remove('turn');
-                }
-                currentPage = 1;
-                document.getElementById('loveButton').style.display = 'none';
-                loveCount = 2;
-                audio.pause();
-                audio.currentTime = 0;
-                isAudioPlaying = false;
             }
         }
 
-        document.body.addEventListener('touchstart', turnPage);
+        document.body.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevent default touch behavior
+            turnPage();
+        });
         document.body.addEventListener('click', turnPage); // For desktop testing
 
         function incrementLove() {
