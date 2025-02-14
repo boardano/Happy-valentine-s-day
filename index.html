@@ -14,12 +14,16 @@
             position: relative;
             height: 100vh;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .book-container {
             position: relative;
-            width: 90%; /* Adjusted size for mobile */
+            width: 90%; /* Adjusted size for responsiveness */
             max-width: 450px; /* Maximum width */
-            height: 80vh; /* Adjusted height for mobile */
+            height: 70vh; /* Adjusted height for responsiveness */
             max-height: 600px; /* Maximum height */
             margin: 20px auto;
             perspective: 1500px;
@@ -43,8 +47,8 @@
             transform-origin: left;
             transition: transform 1s ease-in-out;
             backface-visibility: hidden;
-            padding: 10px; /* Adjusted padding for mobile */
-            font-size: 14px; /* Adjusted font size for mobile */
+            padding: 10px; /* Adjusted padding for responsiveness */
+            font-size: 14px; /* Adjusted font size for responsiveness */
             box-sizing: border-box;
             overflow: hidden;
         }
@@ -78,13 +82,17 @@
         .page.turn {
             transform: rotateY(-180deg);
         }
+        .buttons-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         .love-button {
             display: none;
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            margin-top: 10px;
             padding: 10px 15px;
-            font-size: 14px; /* Adjusted font size */
+            font-size: 16px;
             cursor: pointer;
             background-color: #ff4d6d;
             color: white;
@@ -321,11 +329,14 @@ Love you, darshu ma…</p>
                 <p>Love you, Kanmani</p>
             </div>
             <div class="page" id="page15">
-                <p>Love you, Ms Ram, from Mr Darshini</p>
+                <p>Love you, Ms Ram, from Mr Darshini<br>
+                (LOOK AT THE DOWN LEFT CORNER, YOU'VE GOT A SURPRISE, IF YOU PRESS IT TILL INFINIITY😉😉)</p>
             </div>
         </div>
     </div>
-    <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
+    <div class="buttons-container">
+        <button class="love-button" id="loveButton" onclick="incrementLove()">I love you too ❤️</button>
+    </div>
     <script>
         let currentPage = 1;
         const totalPages = document.querySelectorAll('.page').length;
@@ -345,7 +356,6 @@ Love you, darshu ma…</p>
                     document.getElementById('loveButton').style.display = 'block';
                 }
             } else {
-                // Reset to the first page if it's the last page
                 for (let i = 1; i <= totalPages; i++) {
                     document.getElementById(`page${i}`).classList.remove('turn');
                 }
